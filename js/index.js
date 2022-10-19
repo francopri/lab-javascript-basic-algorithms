@@ -130,12 +130,14 @@ if (nameFirst === hacker1) {
 
 //BONUS 1
 
+// GERAR PARÁGRAFOS
 let texto = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl velit, aliquet ut odio eu, aliquam tristique velit. Nullam quis velit sed nisl euismod auctor ac eget mi. Curabitur tincidunt augue sit amet mattis rhoncus. Fusce in ligula sapien. Suspendisse congue enim id efficitur aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc maximus quis orci vel dictum. Vestibulum finibus mi ut dui interdum, ut vehicula turpis porta. Etiam ac mattis elit. Donec et metus neque. Phasellus at arcu sed velit bibendum rutrum at eget elit. Praesent ornare ultrices aliquet. Maecenas sollicitudin neque vitae risus vulputate, quis feugiat ipsum semper.
 
 Nam nulla arcu, lobortis id lectus quis, venenatis placerat enim. Donec vitae porttitor risus. Duis vitae aliquet ante. Ut non elementum magna. Donec laoreet nisl non lacinia sollicitudin. Nulla commodo at sapien sed lacinia. Vestibulum a tellus vel orci luctus lobortis quis et nulla. Cras quis vestibulum nibh. Nam eu rhoncus elit. Fusce volutpat enim et est laoreet, nec iaculis dui sagittis. Etiam eu augue placerat nisi venenatis blandit vel vitae lectus. Vestibulum eu augue eu purus tempus lacinia.
 
 In blandit pulvinar ex vitae placerat. Proin eu malesuada ipsum, nec laoreet velit. Duis auctor ante sed vestibulum accumsan. Vestibulum bibendum sit amet est a ultricies. Phasellus nunc purus, condimentum vitae lorem a, venenatis mollis est. Morbi consequat volutpat sem. Aliquam sagittis scelerisque ex, a pulvinar quam semper id. Sed volutpat ut justo in sodales. Duis luctus laoreet est, et pellentesque dui elementum eget. Aliquam vulputate cursus sem. Nunc quis venenatis nibh, nec tincidunt magna. Ut rhoncus orci eu maximus ornare.`;
 
+//ITEM 2 - CONTAR PALAVRAS - MODO 1 COM FOR
 
 let qtdEspacos = 0;
 
@@ -151,13 +153,13 @@ let qtdPalavras = qtdEspacos + 1;
 
 console.log(qtdPalavras);
 
-// MODO SEM FOR COM ARRAY
+//ITEM 2 - CONTAR PALAVRAS - MODO SEM FOR COM ARRAY
 
 const qtdPalavras2 = texto.replace(/\s+/gm, " ").split(" ").length;
 console.log(qtdPalavras2);
 
 
-// item 3
+//ITEM 3 - BUSCAR PALAVRA ET COM FOREACH
 
 let palavras = texto2.split(" ");
 
@@ -169,5 +171,11 @@ palavras.forEach((p) => {
   }
 });
 console.log(qtdEt);
+
+//ITEM 3 - BUSCAR PALAVRA ET COM REGEX
+
+const qtdEt2 = texto.match(/\bet\b/gm).length;
+
+console.log(qtdEt2);
 
 //BONUS 2
