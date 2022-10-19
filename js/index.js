@@ -158,7 +158,6 @@ console.log(qtdPalavras);
 const qtdPalavras2 = texto.replace(/\s+/gm, " ").split(" ").length;
 console.log(qtdPalavras2);
 
-
 //ITEM 3 - BUSCAR PALAVRA ET COM FOREACH
 
 let palavras = texto2.split(" ");
@@ -166,7 +165,7 @@ let palavras = texto2.split(" ");
 let qtdEt = 0;
 
 palavras.forEach((p) => {
-  if (p.toLowerCase().replace(/\W/gm,'') == "et") {
+  if (p.toLowerCase().replace(/\W/gm, "") == "et") {
     qtdEt++;
   }
 });
@@ -179,3 +178,44 @@ const qtdEt2 = texto.match(/\bet\b/gm).length;
 console.log(qtdEt2);
 
 //BONUS 2
+
+const phrasesToCheck = [
+  "A man, a plan, a canal, Panama!",
+  "Amor, Roma",
+  "race car",
+  "stack cats",
+  "step on no pets",
+  "taco cat",
+  "put it up",
+  "Was it a car or a cat I saw?",
+  "No 'x' in Nixon",
+  "I'm not a plaindrome"
+];
+
+const letters = "abcdefghijklmnopqrstuvwxyz";
+
+phrasesToCheck.forEach((phraseToCheck) => {
+  // apenas letras
+
+  let phraseLetters = "";
+
+  for (let i = 0; i < phraseToCheck.length; i++) {
+    if (letters.indexOf(phraseToCheck[i].toLowerCase()) >= 0) {
+      phraseLetters += phraseToCheck[i].toLowerCase();
+    }
+  }
+
+  // string invertida
+
+  let phraseLettersInv = "";
+
+  for (let i = phraseLetters.length - 1; i >= 0; i--) {
+    phraseLettersInv += phraseLetters[i];
+  }
+
+  if (phraseLetters == phraseLettersInv) {
+    console.log(`"${phraseToCheck}" is a palindrome!`);
+  } else {
+    console.log(`"${phraseToCheck}" is not a palindrome... bleh`);
+  }
+});
