@@ -39,10 +39,19 @@ for (let i = 0; i < hacker1.length; i++) {
   if (i !== hacker1.length - 1) {
     newName += " ";
   }
-}
+  }
 
 //NOTAR QUE NÃO HÁ ESPAÇO DEPOIS DA ÚLTIMA LETRA
 console.log(`"${newName}"`);
+
+  //OUTRA FORMA SERIA A CONDIÇÃO DO IF  SER IGUAL À ULTIMA POSIÇÃO
+  //if(i === hacker1.length -1  {
+      //newName;
+    // }
+      // else {
+        //newName += {`$hacker1[i].toUpperCase() `;
+     // }
+
 
 // FUNCAO TRIM TIRA O ESPAÇO NAS EXTREMIDADES
 // newName = newName.trim();
