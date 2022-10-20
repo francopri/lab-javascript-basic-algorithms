@@ -1,10 +1,10 @@
 //#region Iteration 1: Names and Input
 
 let hacker1 = `Priscila`;
-console.log(`The driver's name is ${hacker1}.`);
+console.log(`ITERAÇÃO 1: The driver's name is ${hacker1}.`);
 
 let hacker2 = "Guilherme";
-console.log(`The navigator's name is ${hacker2}.`);
+console.log(`ITERAÇÃO 1: The navigator's name is ${hacker2}.`);
 
 //#endregion Iteration 1: Names and Input
 
@@ -12,15 +12,15 @@ console.log(`The navigator's name is ${hacker2}.`);
 
 if (hacker1.length > hacker2.length) {
   console.log(
-    `The driver ${hacker1} has the longest name, it has ${hacker1.length} characters.`
+    ` ITERAÇÃO 2: The driver ${hacker1} has the longest name, it has ${hacker1.length} characters.`
   );
 } else if (hacker1.length < hacker2.length) {
   console.log(
-    `It seems that the navigator ${hacker2} has the longest name, it has ${hacker2.length}.`
+    `ITERAÇÃO 2: It seems that the navigator ${hacker2} has the longest name, it has ${hacker2.length}.`
   );
 } else {
   console.log(
-    `Wow, you both, ${hacker1} and ${hacker2} have equally long names, ${hacker1.length} characters!`
+    `ITERAÇÃO 2: Wow, you both, ${hacker1} and ${hacker2} have equally long names, ${hacker1.length} characters!`
   );
 }
 //#endregion Iteration 2: Conditionals
@@ -39,27 +39,28 @@ for (let i = 0; i < hacker1.length; i++) {
   if (i !== hacker1.length - 1) {
     newName += " ";
   }
-  }
+}
 
 //NOTAR QUE NÃO HÁ ESPAÇO DEPOIS DA ÚLTIMA LETRA
-console.log(`"${newName}"`);
+console.log(`ITERAÇÃO 3 - COM FOR: "${newName}"`);
 
-  //OUTRA FORMA SERIA A CONDIÇÃO DO IF  SER IGUAL À ULTIMA POSIÇÃO
-  //if(i === hacker1.length -1  {
-      //newName;
-    // }
-      // else {
-        //newName += {`$hacker1[i].toUpperCase() `;
-     // }
-
+//OUTRA FORMA SERIA A CONDIÇÃO DO IF  SER IGUAL À ULTIMA POSIÇÃO
+//if(i === hacker1.length -1  {
+//newName;
+// }
+// else {
+//newName += {`$hacker1[i].toUpperCase() `;
+// }
 
 // FUNCAO TRIM TIRA O ESPAÇO NAS EXTREMIDADES
 // newName = newName.trim();
 
 //MODO USANDO METODOS DE MANIPULAÇÃO DE ARRAY
+console.log("ITERAÇÃO 3 - USANDO TRIM");
 console.log(hacker1.toUpperCase().split("").join(" ") + ".");
 
 //MODO USANDO FOR IMPRIMINDO DIRETO NO CONSOLE SEM ARMAZENAR EM VARIÁVEL
+console.log("ITERAÇÃO 3 - MÉTODO 2");
 for (let i = 0; i < hacker1.length; i++) {
   // PROCESS.STDOUT.WRITE ESCREVE SEM QUEBRA DE LINHA
   process.stdout.write(`${hacker1[i].toUpperCase()} `);
@@ -80,18 +81,18 @@ for (let i = hacker2.length - 1; i >= 0; i--) {
   newNameReverse += hacker2[i] + " ";
 }
 newNameReverse = newNameReverse.trim();
-console.log(newNameReverse);
+console.log("ITERAÇÃO 2 - USANDO FOR: " + newNameReverse);
 
 // MODO USANDO MÉTODO REVERSE DE UM ARRAY
 const newNameReverse2 = hacker2.split("").reverse().join(" ");
-console.log(newNameReverse2);
+console.log("ITERAÇÃO 3 - MÉTODO REVERSE: " + newNameReverse2);
 
 //#endregion 3.2 REVERSE
 
 //#region  3.3 LEXICOGRAFIC
 
 hacker1 = "Guilherme";
-hacker2 = "Guilherme";
+hacker2 = "PRISCILA";
 
 //MODO USANDO FOR PARA COMPARAR CADA CARACTER DOS 2 NOMES
 let nameFirst;
@@ -115,11 +116,15 @@ if (!nameFirst && hacker1.length != hacker2.length) {
 }
 
 if (nameFirst === hacker1) {
-  console.log(`The driver's name (${nameFirst}) goes first.`);
+  console.log(
+    `ITERAÇÃO 3 - ALFABETICO: The driver's name (${nameFirst}) goes first.`
+  );
 } else if (nameFirst === hacker2) {
-  console.log(`Yo, the navigator (${nameFirst}) goes first definitely.`);
+  console.log(
+    `ITERAÇÃO 3 - ALFABETICO: Yo, the navigator (${nameFirst}) goes first definitely.`
+  );
 } else {
-  console.log(`What?! You both have the same name?`);
+  console.log(`ITERAÇÃO 3 - ALFABETICO: What?! You both have the same name?`);
 }
 
 //MODO USANDO A COMPARAÇÃO DIRETA ENTRE AS STRINGS SEM LAÇO
@@ -133,11 +138,38 @@ if (nameFirst === hacker1) {
 //     console.log(`What?! You both have the same name?`);
 // }
 
+// USANDO O MÉTODO LOCALECOMPARE()
+
+// 3.3 Depending on the lexicographic order of the strings, print:
+// - The driver's name goes first.
+// - Yo, the navigator goes first definitely.
+// - What?! You both have the same name?
+
+// A String de referencia vem depois, o resultado será positivo.  Se for zero, as strings são iguais, se for negativo, a string vem antes. < 0, > 0, ou = 0
+
+console.log("LOCALECOMPARE RESULTADO: " + hacker1.localeCompare(hacker2));
+
+if (hacker1.localeCompare(hacker2) === 0) {
+  console.log("What?! You both have the same name?");
+}
+
+if (hacker1.localeCompare(hacker2) > 0) {
+  console.log("Yo, the navigator goes first definitely.");
+}
+
+if (hacker1.localeCompare(hacker2) < 0) {
+  console.log("The driver's name goes first.");
+}
+
+// if (hacker1.localeCompare(hacker2)){
+
+// }
+
 //#endregion  3.3 LEXICOGRAFIC
 
 //#endregion Iteration 3: Loops
 
-//BONUS 1
+//#region BONUS 1
 
 // GERAR PARÁGRAFOS
 let texto = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl velit, aliquet ut odio eu, aliquam tristique velit. Nullam quis velit sed nisl euismod auctor ac eget mi. Curabitur tincidunt augue sit amet mattis rhoncus. Fusce in ligula sapien. Suspendisse congue enim id efficitur aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc maximus quis orci vel dictum. Vestibulum finibus mi ut dui interdum, ut vehicula turpis porta. Etiam ac mattis elit. Donec et metus neque. Phasellus at arcu sed velit bibendum rutrum at eget elit. Praesent ornare ultrices aliquet. Maecenas sollicitudin neque vitae risus vulputate, quis feugiat ipsum semper.
@@ -160,12 +192,12 @@ for (let i = 0; i < texto2.length; i++) {
 
 let qtdPalavras = qtdEspacos + 1;
 
-console.log(qtdPalavras);
+console.log("ITERAÇÃO 3 - CONTA PALAVRAS: " + qtdPalavras);
 
 //ITEM 2 - CONTAR PALAVRAS - MODO SEM FOR COM ARRAY
 
 const qtdPalavras2 = texto.replace(/\s+/gm, " ").split(" ").length;
-console.log(qtdPalavras2);
+console.log(qtdPalavras2 + " palavras!");
 
 //ITEM 3 - BUSCAR PALAVRA ET COM FOREACH
 
@@ -178,15 +210,19 @@ palavras.forEach((p) => {
     qtdEt++;
   }
 });
-console.log(qtdEt);
+console.log("BONUS 1 - CONTANDO PALAVRA ET: " + qtdEt);
 
 //ITEM 3 - BUSCAR PALAVRA ET COM REGEX
 
 const qtdEt2 = texto.match(/\bet\b/gm).length;
 
-console.log(qtdEt2);
+console.log("BONUS 1 - COM REGEX:" + qtdEt2);
 
+//#endregion BONUS 1
+
+//#region BONUS 2
 //BONUS 2
+console.log("BONUS 2 - PALINDROMO:");
 
 const phrasesToCheck = [
   "A man, a plan, a canal, Panama!",
@@ -198,7 +234,7 @@ const phrasesToCheck = [
   "put it up",
   "Was it a car or a cat I saw?",
   "No 'x' in Nixon",
-  "I'm not a plaindrome"
+  "I'm not a plaindrome",
 ];
 
 const letters = "abcdefghijklmnopqrstuvwxyz";
@@ -223,8 +259,10 @@ phrasesToCheck.forEach((phraseToCheck) => {
   }
 
   if (phraseLetters == phraseLettersInv) {
-    console.log(`"${phraseToCheck}" is a palindrome!`);
+    console.log(`${phraseToCheck}" is a palindrome!`);
   } else {
-    console.log(`"${phraseToCheck}" is not a palindrome... bleh`);
+    console.log(`${phraseToCheck}" is not a palindrome... bleh`);
   }
 });
+
+//#endregion BONUS 2
